@@ -42,7 +42,7 @@ const MapView = (() => {
         color: '#fff',
         weight: 2.5,
         fillOpacity: 1,
-      }).addTo(map).bindPopup('<b>You are here</b>');
+      }).addTo(map).bindPopup('<b>You stunning you!</b>');
       map.flyTo([lat, lng], 15, { duration: 1 });
     });
   }
