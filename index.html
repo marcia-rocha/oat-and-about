@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Oat Flat White Prices</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header>
+    <div>
+      <h1>☕ Oat Flat White Prices</h1>
+    </div>
+    <p>Long-press the map to add</p>
+  </header>
+
+  <div id="map"></div>
+
+  <button class="locate-btn" onclick="MapView.locateUser()" title="Find my location">📍</button>
+
+  <div class="hint-pill" id="hint">Hold the map to add a coffee shop</div>
+
+  <!-- Add shop bottom sheet -->
+  <div id="add-modal">
+    <div class="modal-sheet">
+      <div class="modal-handle"></div>
+      <h2>Add coffee shop</h2>
+      <p class="modal-coords" id="modal-coords"></p>
+
+      <div class="modal-field">
+        <label for="m-name">Coffee shop name</label>
+        <input type="text" id="m-name" placeholder="e.g. Blank Street Coffee" autocomplete="off" />
+      </div>
+      <div class="modal-field">
+        <label for="m-addr">Address (auto-detected)</label>
+        <input type="text" id="m-addr" placeholder="Fetching address…" />
+      </div>
+      <div class="modal-field">
+        <label for="m-price">Oat flat white price</label>
+        <input type="text" id="m-price" placeholder="£4.50" maxlength="6"
+          oninput="Modal.enforcePriceInput(this)" />
+      </div>
+
+      <div class="modal-actions">
+        <button class="btn-cancel" onclick="Modal.close()">Cancel</button>
+        <button class="btn-submit" id="m-submit" onclick="Modal.submit()">Add to map</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast"></div>
+
+  <!-- Load order matters: config → utilities → data → UI modules → entry point -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/db.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/map.js"></script>
+  <script src="js/modal.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+</html>
