@@ -71,8 +71,9 @@ const Modal = (() => {
     document.getElementById('m-name').focus();
 
     // Reverse geocode in background
-    const addr = await Utils.reverseGeocode(latlng.lat, latlng.lng);
-    document.getElementById('m-addr').value = addr;
+    const { address, name } = await Utils.reverseGeocode(latlng.lat, latlng.lng);
+    document.getElementById('m-addr').value = address;
+    if (name) document.getElementById('m-name').value = name;
   }
 
   function close() {

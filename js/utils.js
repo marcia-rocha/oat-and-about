@@ -21,12 +21,15 @@ const Utils = (() => {
    */
   async function reverseGeocode(lat, lng) {
     try {
-      const url = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}`;
+      const url = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}&zoom=18&namedetails=1`;
       const res = await fetch(url, { headers: { 'Accept-Language': 'en' } });
       const data = await res.json();
-      return data.display_name || '';
+      return {
+        address: data.display_name || '',
+        name: data.namedetails?.name || '',
+      };
     } catch {
-      return '';
+      return { address: '', name: '' };
     }
   }
 
