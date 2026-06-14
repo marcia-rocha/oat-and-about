@@ -17,9 +17,9 @@ const MapView = (() => {
   function init(containerId) {
     map = L.map(containerId, { zoomControl: false }).setView([51.505, -0.09], 13);
 
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-      maxZoom: 19,
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+      attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors © <a href="https://carto.com/attributions">CARTO</a>',
+      maxZoom: 20,
     }).addTo(map);
 
     L.control.zoom({ position: 'topright' }).addTo(map);
