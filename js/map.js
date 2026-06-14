@@ -54,7 +54,7 @@ const MapView = (() => {
   function makePriceIcon(price) {
     return L.divIcon({
       className: '',
-      html: `<div class="price-pin">${escHtml(price)}</div>`,
+      html: `<div class="price-pin">☕ ${escHtml(price)}</div>`,
       iconAnchor: [32, 10],
     });
   }
